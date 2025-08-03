@@ -9,3 +9,5 @@ services:
         value: 882753fe0e6040149178a456f0aca197
       - key: CLIENT_SECRET
         value: b6022bcf2ffd440eac48ce2ac5c05d99
+        - key: SECRET_KEY
+    value: b2bae02d5207b0ba9995e118f61ac8e6
