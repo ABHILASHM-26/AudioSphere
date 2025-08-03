@@ -3,7 +3,7 @@ services:
     name: audiosphere-backend
     env: python
     buildCommand: "pip install -r requirements.txt"
-    startCommand: "python main.py"
+    startCommand: "gunicorn main:app --bind 0.0.0.0:$PORT"
     envVars:
       - key: CLIENT_ID
         value: 882753fe0e6040149178a456f0aca197
