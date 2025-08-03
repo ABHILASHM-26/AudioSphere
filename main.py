@@ -390,8 +390,7 @@ def signup():
                 message = "All fields are required"
                 if request.is_json:
                     return jsonify({"error": message}), 400
-                flash(message, "error")
-                return redirect(url_for('signup'))
+                return render_template('signup.html', error=message)
 
             hashed_password = generate_password_hash(password)
 
@@ -404,21 +403,19 @@ def signup():
             if request.is_json:
                 return jsonify({"message": "Signup successful"}), 201
 
-            return render_template('profile.html', username=username, email=email)
-        
+            return redirect(url_for('profile', username=username, email=email))
+
         except sqlite3.IntegrityError:
             message = "Email already registered"
             if request.is_json:
                 return jsonify({"error": message}), 409
-            flash(message, "error")
-            return redirect(url_for('signup'))
+            return render_template('signup.html', error=message)
 
         except Exception as e:
             message = str(e)
             if request.is_json:
                 return jsonify({"error": message}), 500
-            flash(message, "error")
-            return redirect(url_for('signup'))
+            return render_template('signup.html', error=message)
 
     return render_template('signup.html')
 
@@ -439,8 +436,7 @@ def signin():
                 message = "Email and password are required"
                 if request.is_json:
                     return jsonify({"error": message}), 400
-                flash(message, "error")
-                return redirect(url_for('signin'))
+                return render_template('signin.html', error=message)
 
             with sqlite3.connect(DB_NAME) as conn:
                 c = conn.cursor()
@@ -450,22 +446,23 @@ def signin():
             if result and check_password_hash(result[1], password):
                 username = result[0]
                 if request.is_json:
-                    return jsonify({"message": "Signin successful", "username": username, "email": email}), 200
-                return render_template('profile.html', username=username, email=email)
-
+                    return jsonify({
+                        "message": "Signin successful",
+                        "username": username,
+                        "email": email
+                    }), 200
+                return redirect(url_for('profile', username=username, email=email))
             else:
                 message = "Invalid email or password"
                 if request.is_json:
                     return jsonify({"error": message}), 401
-                flash(message, "error")
-                return redirect(url_for('signin'))
+                return render_template('signin.html', error=message)
 
         except Exception as e:
             message = str(e)
             if request.is_json:
                 return jsonify({"error": message}), 500
-            flash(message, "error")
-            return redirect(url_for('signin'))
+            return render_template('signin.html', error=message)
 
     return render_template('signin.html')
 
