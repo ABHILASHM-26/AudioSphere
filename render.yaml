@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: audiosphere-backend
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "python main.py"
+    envVars:
+      - key: CLIENT_ID
+        value: 882753fe0e6040149178a456f0aca197
+      - key: CLIENT_SECRET
+        value: b6022bcf2ffd440eac48ce2ac5c05d99

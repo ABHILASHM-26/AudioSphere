@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.db
+
+# Virtual environments
+venv/
+env/
+.venv/
+ENV/
+
+# VSCode
+.vscode/
+
+# Secrets
+#.env
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# pip
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Coverage and testing
+htmlcov/
+.coverage
+.tox/
+.mypy_cache/
+.pytest_cache/
+
+# Jupyter
+.ipynb_checkpoints/

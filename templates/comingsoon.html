@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Coming Soon</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style1.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="nav">
+    <div class="logo">
+        <img src="{{ url_for('static', filename='LogoOnlyWhite.png') }}" class="img" />
+        <p class="title">AudioSphere</p>
+    </div>
+        <div class="menu">
+            <p>Menu</p>
+            <div class="menu-items">
+                <div class="menu-item-sep">
+                    <i class="fa-solid fa-house"></i>
+                    <a class="menu-button1" href="{{ url_for('index') }}">Home</a>
+                </div>
+                <div class="menu-item-sep">
+                    <i class="fa-solid fa-user-large"></i>
+                    <a class="menu-button1" href="{{ url_for('artists') }}">Artist</a>
+                </div>
+                <div class="menu-item-sep">
+                    <i class="fa-solid fa-envelope"></i>
+                    <a class="menu-button1" href="{{ url_for('comingsoon') }}">Message</a>
+                </div>
+                <div class="menu-item-sep">
+                    <i class="fa-solid fa-grip"></i>
+                    <a class="menu-button1" href="{{ url_for('genres') }}">Genre</a>
+                </div>
+                <div class="menu-item-sep">
+                    <i class="fa-solid fa-user-plus"></i>
+                    <a class="menu-button1" href="{{ url_for('signup') }}">SignUp</a>
+                </div>
+                    <div class="menu-item-sep">
+                    <i class="fa-solid fa-right-to-bracket"></i>
+                    <a class="menu-button1" href="{{ url_for('signin') }}">SignIn</a>
+                </div>
+                <div class="menu-item-sep">
+                  <i class="fa-solid fa-user"></i>
+                  <a class="menu-button1" href="{{ url_for('profile', username=username, email=email) }}">Profile</a>
+                 </div>
+            </div>
+        </div>
+</div>
+
+<div class="content">
+    <div class="search-login">
+        <div class="search">
+            <form action="{{ url_for('search') }}" method="POST">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" name="artist" class="search-input" placeholder="Search songs,artist,albums">
+            </form>
+        </div>
+    </div>
+      <p class="recommend">Hey Listener</p>
+    <div class="message-box">
+        <h1>Message</h1>
+        <p>We're currently restricted from delivering you the full experience, but we're working on it!</p>
+        <p>We'll get back to you very soon.</p>
+        <audio controls autoplay>
+            <source src="{{ url_for('static', filename='The Shadow.mp3') }}" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        </div>
+        <div class="creators">
+            <p>Created By</p>
+            <div>
+                <a target="_blank" href="https://www.linkedin.com/in/abhilashmellacheruvu/">Abhilash Mellacheruvu</a> |
+                <a target="_blank" href="https://www.linkedin.com/in/siddartha-kallampalli-a8982a2a3">Siddartha Kallampalli</a>
+            </div>
+    </div>
+        <div class="player">
+            <img id="song-photo" class="song-photo-player" src="{{ url_for('static', filename='default_cover.jpg') }}" alt="Cover Art" />
+            <div class="info-audio">
+                <div id="song-info" class="player-info">
+                    <p id="song-name" class="song-name-player">Select a song</p>
+                    <p id="artist-name" class="artist-name-player">Artist Name</p>
+                </div>
+                <div class="audio-player">
+                      <audio id="audioPlayer" controls></audio>
+                </div>
+            </div>
+        </div>
+
+<script>
+    function playSong(url, name, artist, photo) {
+        const audioPlayer = document.getElementById('myaudio');
+        const songName = document.getElementById('song-name');
+        const artistName = document.getElementById('artist-name');
+        const songPhoto = document.getElementById('song-photo');
+
+        audioPlayer.src = url;
+        songName.textContent = name;
+        artistName.textContent = artist;
+        songPhoto.src = photo;
+
+        audioPlayer.play();
+    }
+</script>
+</body>
+</html>
