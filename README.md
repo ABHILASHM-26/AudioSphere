@@ -11,7 +11,6 @@ Live Demo: [https://audiosphere-gs9z.onrender.com](https://audiosphere-gs9z.onre
 -  User **Sign Up / Sign In**
 -  **Profile Page** with user info
 -  In-browser **Audio Player**
--  **Responsive UI** with dark mode styling
 -  Backend with **Flask** + SQLite3
 -  Uses **Spotify Web API** for music data
 
@@ -41,11 +40,11 @@ Live Demo: [https://audiosphere-gs9z.onrender.com](https://audiosphere-gs9z.onre
 git clone https://github.com/ABHILASHM-26/AudioSphere.git
 cd AudioSphere
 2. Set Up Environment
-bash
-Copy
-Edit
+
 python3 -m venv venv
+
 venv\Scripts\activate on Windows
+
 pip install -r requirements.txt
 
 3. Configure Spotify API
@@ -55,22 +54,13 @@ CLIENT_ID=your_spotify_client_id
 CLIENT_SECRET=your_spotify_client_secret
 Get your Spotify credentials here: https://developer.spotify.com/dashboard
 
-4. Initialize SQLite Database
-
->>> import sqlite3
->>> conn = sqlite3.connect("instance/users.db")
->>> c = conn.cursor()
->>> c.execute("CREATE TABLE users (id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT, email TEXT UNIQUE, password TEXT)")
->>> conn.commit()
->>> conn.close()
-Or use the existing users.db provided in instance/.
-
-5. Run the App Locally
+4. Run the App Locally
 
 python main.py
+
 Visit: http://localhost:5000
 
-Authentication Notes
+# Authentication Notes
 
 User credentials are securely stored with hashed passwords (werkzeug.security).
 
@@ -78,7 +68,7 @@ Sessions and Flash messages were removed for stateless compatibility on platform
 
 User info is passed via query parameters for profile rendering.
 
- Folder Structure
+# Folder Structure
 
 AudioSphere/
 │
@@ -95,16 +85,18 @@ AudioSphere/
 ├── requirements.txt       
 └── README.md
 
-Deployment
+# Deployment :
 
-Backend: Render.com
+   [https://audiosphere-gs9z.onrender.com](https://audiosphere-gs9z.onrender.com)
+  
+# Ceated By :
 
- Ceated By :
 Abhilash Mellacheruvu
 
 Siddartha Kallampalli
 
-Future Enhancements
+# Future Enhancements :
+
 Add playlists & favorites
 
 Add messaging/comments
@@ -117,18 +109,18 @@ Enjoy streaming with AudioSphere!
 
 we are open for feedback contact us :
 
-Contact & Support
+# ontact & Support
 
 Have questions, feedback, or need help?
 
 - **Name**:  Abhilash M
-- 
+
 - **Email**: abhilashm1344@gmail.com
 
 - **Phone**: +91-9014578545
-- 
+
 - **LinkedIn**: [https://www.linkedin.com/in/Abhilash M](https://www.linkedin.com/in/abhilashmellacheruvu/)
-- 
+
 - **GitHub**: [github.com/ABHILASHM-26](https://github.com/ABHILASM-26)
 
 Feel free to open an issue if something isn't working right.
