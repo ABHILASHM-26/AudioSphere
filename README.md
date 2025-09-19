@@ -1,4 +1,4 @@
-# 🎧 AudioSphere
+# AudioSphere
 
 **AudioSphere** is a Spotify-powered music streaming web application built using **Flask** (backend) and **HTML/CSS/JS** (frontend). It lets users search and stream music, explore artists and genres, and securely sign up or sign in to personalize their experience.
 
@@ -109,7 +109,7 @@ Enjoy streaming with AudioSphere!
 
 we are open for feedback contact us :
 
-# ontact & Support
+# Contact & Support
 
 Have questions, feedback, or need help?
 
